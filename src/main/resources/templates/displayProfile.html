@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Profile</title>
+
+	<!-- Add Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS for styling (optional) -->
+	<style>
+		/* Add your custom CSS styles here */
+		body {
+			background-color: rgb(64, 0, 128);
+			padding: 20px;
+			display: block;
+			align-self: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		.profile-card {
+			margin-top: 20px;
+			border: 1px solid #dee2e6;
+			border-radius: 5px;
+			padding: 20px;
+			background-color: #fff;
+
+		}
+
+		.profile-image {
+			max-width: 150px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1 align="center" style="color:aliceblue">User Profile</h1>
+
+		<div class="profile-card">
+			<!-- Profile Image -->
+			<td><img th:src="@{'/images/' + ${profile.imagePath}}" width="100" height="100" /></td>
+			<h2 th:text="${profile.name}"></h2>
+			<p><strong>Email:</strong> <span th:text="${profile.email}"></span></p>
+			<p><strong>Age:</strong> <span th:text="${profile.age}"></span></p>
+			<p><strong>Date of Birth:</strong> <span th:text="${profile.DOB}"></span></p>
+			<p><strong>Language:</strong> <span th:text="${profile.language}"></span></p>
+			<p><strong>Gender:</strong> <span th:text="${profile.gender}"></span></p>
+			<p><strong>Bio:</strong> <span th:text="${profile.bio}"></span></p>
+
+		</div>
+	</div>
+
+	<!-- Add Bootstrap JavaScript (optional) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

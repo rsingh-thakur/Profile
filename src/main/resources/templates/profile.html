@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Input Field Types</title>
+
+	<!-- Add Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS for styling -->
+	<style>
+		body {
+			padding: 20px;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		.container {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 10px auto;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+		}
+
+		
+	</style>
+</head>
+
+<body style="background-color: rgb(64, 0, 128);">
+	<div class="container">
+		<h1>Create Profile</h1>
+		
+		<form action="http://localhost:8080/createProfile" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="text-input">Your Name:</label>
+				<input type="text" id="text-input" name="name" class="form-control" placeholder="Enter your full name">
+			</div>
+
+			<div class="form-group">
+				<label for="password-input">Password:</label>
+				<input type="password" id="password-input" name="password" class="form-control"
+					placeholder="Enter password">
+			</div>
+
+			<div class="form-group">
+				<label for="email-input">Email Address:</label>
+				<input type="email" id="email-input" name="email" class="form-control"
+					placeholder="Enter email address">
+			</div>
+
+			<div class="form-group">
+				<label for="number-input">Your Age:</label>
+				<input type="number" id="number-input" name="age" class="form-control" placeholder="Enter age">
+			</div>
+
+			<div class="form-group">
+				<label for="date-input">DOB:</label>
+				<input type="date" id="date-input" name="DOB" class="form-control">
+			</div>
+
+			<div class="form-check">
+				<label class="form-check-label">choose language</label>
+				<label for="checkbox1" class="form-check-label">Hindi</label>
+				<input type="checkbox" id="checkbox1" name="language" value="Hindi" class="form-check-input">
+				<label for="checkbox" class="form-check-label">English</label>
+				<input type="checkbox" id="checkbox" name="language" value="English" class="form-check-input">
+
+			</div>
+
+			<div class="form-group">
+				<label>Gender:</label><br>
+				<div class="form-check">
+					<input type="radio" id="radio1" name="gender" value="Male" class="form-check-input">
+					<label for="radio1" class="form-check-label">Male</label><br>
+				</div>
+				<div class="form-check">
+					<input type="radio" id="radio2" name="gender" value="Female" class="form-check-input">
+					<label for="radio2" class="form-check-label">Female</label><br>
+				</div>
+				<div class="form-check">
+					<input type="radio" id="radio3" name="gender" value="Others" class="form-check-input">
+					<label for="radio2" class="form-check-label">Others</label><br>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="select">Select :</label>
+				<select id="select" name="prefix" class="form-control">
+					<option value="Mr.">Mr.</option>
+					<option value="Mrs.">Mrs.</option>
+					<option value="Mis.">Mis.</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="textarea">Bio:</label>
+				<textarea id="textarea" name="Bio" class="form-control" rows="4" placeholder="Enter Bio"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="file-input">Profile Pictute:</label>
+				<input type="file" id="file-input" name="image" accept=".jpg, .jpeg, .png" required
+					class="form-control">
+
+			</div>
+			<div class="form-group">
+				<label for="multiple-file-input">Select Documents files:</label>
+				<input id="multiple-file-input" type="file" name="files" multiple>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-primary">
+			</div>
+	</div>
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
