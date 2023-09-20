@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>update profile</title>
+
+	<!-- Add Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS for styling -->
+	<style>
+		body {
+			padding: 20px;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		.container {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 10px auto;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body style="background-color: rgb(64, 0, 128);">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">UserProfile App</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/createPage">Create Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/">All Users</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<h2>Update Profile</h2>
+
+		<form action="http://localhost:8080/updateProfile" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="text-input">Your Name:</label>
+				<input type="text" id="text-input" name="name" class="form-control" th:value="${profile.name}" required
+					placeholder="Enter your full name">
+			</div>
+
+			<div class="form-group">
+				<label for="password-input">Password:</label>
+				<div class="input-group">
+					<input type="password" id="password-input" name="password" th:value="${profile.password}"
+						class="form-control" placeholder="Enter password" required>
+					<div class="input-group-append">
+						<span class="input-group-text" id="show-password">
+							<i class="fas fa-eye" id="password-eye"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="email-input">Email Address:</label>
+				<input type="email" id="email-input" name="email" th:value="${profile.email}" class="form-control"
+					placeholder="Enter email address" required>
+			</div>
+
+			<div class="form-group">
+				<label for="number-input">Your Age:</label>
+				<input type="number" id="number-input" name="age" th:value="${profile.age}" class="form-control"
+					placeholder="Enter age" required>
+			</div>
+
+
+			<div class="form-group">
+				<label for="date-input">DOB:</label>
+				<input type="date" id="date-input" name="DOB" th:value="${#dates.format(profile.DOB, 'yyyy-MM-dd')}"
+					class="form-control" required>
+			</div>
+
+
+			<div class="form-check">
+				<label class="form-check-label">Choose languages</label>
+				<br>
+				<input type="checkbox" id="checkbox1" name="language" value="Hindi"
+					th:checked="${profile.language.contains('Hindi')}" class="form-check-input">
+				<label for="checkbox1" class="form-check-label">Hindi</label><br>
+				<input type="checkbox" id="checkbox" name="language" value="English"
+					th:checked="${profile.language.contains('English')}" class="form-check-input">
+				<label for="checkbox" class="form-check-label">English</label><br>
+				<br>
+			</div>
+
+
+			<div class="form-group">
+				<label>Gender:</label><br>
+				<div class="form-check">
+					<input type="radio" id="radio1" name="gender" value="Male" th:checked="${profile.gender == 'Male'}"
+						class="form-check-input">
+					<label for="radio1" class="form-check-label">Male</label><br>
+				</div>
+
+				<div class="form-check">
+					<input type="radio" id="radio2" name="gender" value="Female"
+						th:checked="${profile.gender == 'Female'}" class="form-check-input" required>
+					<label for="radio2" class="form-check-label">Female</label><br>
+				</div>
+
+				<div class="form-check">
+					<input type="radio" id="radio3" name="gender" value="Others"
+						th:checked="${profile.gender == 'Others'}" class="form-check-input">
+					<label for="radio3" class="form-check-label">Others</label><br>
+				</div>
+
+			</div>
+
+			<div class="form-group">
+				<label for="select">Select :</label>
+				<select id="select" name="prefix" class="form-control" required>
+					<option value="Mr." th:selected="${profile.prename == 'Mr.'}">Mr.</option>
+					<option value="Mrs." th:selected="${profile.prename == 'Mrs.'}">Mrs.</option>
+					<option value="Mis." th:selected="${profile.prename == 'Mis.'}">Mis.</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="textarea">Bio:</label>
+				<textarea id="textarea" name="Bio" class="form-control" rows="4" th:value="${profile.bio}"
+					placeholder="Enter Bio" required></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="productFile" class="col-sm-3 col-form-label">
+					<img th:src="@{'/images/' + ${profile.imagePath}}" width="100" height="100" /></label>
+				<div class="col-sm-9">
+					<input type="file" id="productFile" name="image" th:value="${profile.imagePath}"
+						class="form-control" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Update" class="btn btn-primary">
+			</div>
+	</div>
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+		// JavaScript to toggle password visibility
+		const passwordInput = document.getElementById("password-input");
+		const passwordEye = document.getElementById("password-eye");
+		const showPasswordButton = document.getElementById("show-password");
+
+		showPasswordButton.addEventListener("click", function () {
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				passwordEye.classList.remove("fa-eye");
+				passwordEye.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				passwordEye.classList.remove("fa-eye-slash");
+				passwordEye.classList.add("fa-eye");
+			}
+		});
+	</script>
+</body>
+
+</html>

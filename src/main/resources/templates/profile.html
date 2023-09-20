@@ -33,8 +33,27 @@
 </head>
 
 <body style="background-color: rgb(64, 0, 128);">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">UserProfile App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"	aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/createPage">Create Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/">All Users</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container">
-		<h1>Create Profile</h1>
+		<h2>Create Profile</h2>
 		
 		<form action="http://localhost:8080/createProfile" method="post" enctype="multipart/form-data">
 			<div class="form-group">
@@ -59,19 +78,23 @@
 				<input type="number" id="number-input" name="age" class="form-control" placeholder="Enter age">
 			</div>
 
+
 			<div class="form-group">
 				<label for="date-input">DOB:</label>
 				<input type="date" id="date-input" name="DOB" class="form-control">
 			</div>
 
-			<div class="form-check">
-				<label class="form-check-label">choose language</label>
-				<label for="checkbox1" class="form-check-label">Hindi</label>
-				<input type="checkbox" id="checkbox1" name="language" value="Hindi" class="form-check-input">
-				<label for="checkbox" class="form-check-label">English</label>
-				<input type="checkbox" id="checkbox" name="language" value="English" class="form-check-input">
 
+			<div class="form-check">
+				<label class="form-check-label">Choose languages</label>
+				<br>
+				<input type="checkbox" id="checkbox1" name="language" value="Hindi" class="form-check-input">
+				<label for="checkbox1" class="form-check-label">Hindi</label><br>
+				<input type="checkbox" id="checkbox" name="language" value="English" class="form-check-input">
+				<label for="checkbox" class="form-check-label">English</label><br>
+				<br>
 			</div>
+			
 
 			<div class="form-group">
 				<label>Gender:</label><br>
@@ -79,14 +102,17 @@
 					<input type="radio" id="radio1" name="gender" value="Male" class="form-check-input">
 					<label for="radio1" class="form-check-label">Male</label><br>
 				</div>
+				
 				<div class="form-check">
 					<input type="radio" id="radio2" name="gender" value="Female" class="form-check-input">
 					<label for="radio2" class="form-check-label">Female</label><br>
 				</div>
+				
 				<div class="form-check">
 					<input type="radio" id="radio3" name="gender" value="Others" class="form-check-input">
-					<label for="radio2" class="form-check-label">Others</label><br>
+					<label for="radio3" class="form-check-label">Others</label><br>
 				</div>
+				
 			</div>
 
 			<div class="form-group">
@@ -109,6 +135,7 @@
 					class="form-control">
 
 			</div>
+			
 			<div class="form-group">
 				<label for="multiple-file-input">Select Documents files:</label>
 				<input id="multiple-file-input" type="file" name="files" multiple>
