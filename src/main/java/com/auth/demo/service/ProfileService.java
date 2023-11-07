@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.auth.demo.entity.Profile;
@@ -20,7 +20,7 @@ import com.auth.demo.entity.UserFile;
 import com.auth.demo.repo.ProfileRepo;
 import com.auth.demo.request.ProfileRequest;
 
-@Service
+@Component
 public class ProfileService {
 
 	@Value("${image.upload.path}")

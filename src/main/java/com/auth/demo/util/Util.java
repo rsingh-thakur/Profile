@@ -1,4 +1,4 @@
-package com.auth.demo;
+package com.auth.demo.util;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Component;
